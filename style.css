@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap');
+
+*  {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-weight: 800;
+    font-family: "Inter", sans-serif;
+}
+
+:root{
+    --light-blue: #3B4664;
+    --dark-blue: #181F32;
+    --blue: #252D44;
+    --whites: #EAE3DB;
+
+}
+
+body {
+    background-color: var(--light-blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+h1 {
+    color: #FFFFFF;
+    font-size: 1.25rem;
+}
+
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 90%;
+    max-width: 280px;
+    gap: 1rem;
+}
+
+.type-bar {
+    width: 100%;
+
+}
+
+input {
+    width: 100%;
+    background-color: var(--dark-blue);
+    border: none;
+    border-radius: 0.5rem;
+    color: var(--whites);
+    padding: 1.25rem 1rem;
+    text-align: right;
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: "Segoe UI";
+    letter-spacing: 0.5rem;
+}
+
+input::placeholder{
+    color: #FFFFFF;
+    font-weight: 700;
+
+}
+
+
+.calculation {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    background-color: var(--blue);
+    gap: 0.7rem;
+    padding: 1.5rem 1rem;
+    border-radius: 0.5rem;
+    width: 100%;
+}
+
+
+.num {
+    background-color: var(--whites);
+    box-shadow: 0px 4px 4px 0px #00000040;
+    border-radius: 0.5rem;
+    font-weight: 800;
+    text-align: center;
+    color: #3B4664;
+    border: none;
+    padding: 0.5rem 1rem;
+}
+
+.calculation .reset {
+    grid-column: span 2;
+}
+
+.calculation .equal {
+    grid-column: span 2; 
+    background-color: #D13F30;
+    color: #FFFFFF;
+    border-radius: 0.5rem;
+    border: none;
+}
+
+
+.del, .reset{
+    box-shadow: 0px 4px 4px 0px #00000040;
+    color: #FFFFFF;
+    background-color: #647299;
+    font-size: 0.75rem;
+    border-radius: 0.5rem;
+    border: none;
+
+}
