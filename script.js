@@ -9,6 +9,7 @@ let result = '';
 
 const display = (value) => {
     input.value = value;
+    input.scrollLeft = input.scrollWidth;
 };
 
 const isOperator = (value) => {
@@ -24,20 +25,21 @@ const selectedClick = (value) => {
     // Not allow starting the expression with an operator other than '-'
     if (curr === '' && isOperator(value) && value !== '-') return;
 
-    // Not allow consecutive operators
-    if (isOperator(value) && isOperator(curr.slice(-1))) {
+    // Check if the last non-space character is an operator
+    const lastChar = curr.trim().slice(-1);
+    if (isOperator(value) && isOperator(lastChar)) {
         console.log("Multiple operators together not allowed");
-        return
-    };
+        return;
+    }
 
     // Disallow multiple decimal points in a number
 
     const lastNumber = curr.split(/[\+\-\x\/]/).pop(); // Get the last number segment
     if (value === '.' && lastNumber.includes('.')) return;
 
-
+    const format = value.replace(/([+\-x\/])/g, ' $1 ')
     // Append value to the current expression
-    curr += value;
+    curr += format;
 
     display(curr);
 
@@ -63,10 +65,15 @@ const equalClick = () => {
 
 const deleteClick = () => {
     if (curr.length > 0) {
-        curr = curr.slice(0, -1); 
-        display(curr); 
+        // Remove the last character and any trailing spaces
+        if (curr.slice(-1) === ' ') {
+            curr = curr.slice(0, -3); // Remove operator with spaces
+        } else {
+            curr = curr.slice(0, -1); // Remove last character
+        }
+        display(curr);
     }
-}
+};
 
 const resetClick = () => {
     curr = '';
