@@ -34,8 +34,8 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: start;
-    width: 90%;
-    max-width: 280px;
+    width: 100%;
+    max-width: 32%;
     gap: 1rem;
 }
 
@@ -108,4 +108,30 @@ input::placeholder{
     border-radius: 0.5rem;
     border: none;
 
+}
+
+@media (max-width: 768px) {
+    .main {
+        max-width: 60%; /* Scale the width for medium screens */
+    }
+}
+
+@media (max-width: 480px) {
+    input {
+        font-size: 1.25rem; /* Slightly smaller font size for input */
+        padding: 1rem 0.75rem;
+    }
+
+    .num {
+        padding: 0.4rem 0.75rem;
+    }
+
+    .calculation {
+        gap: 0.5rem;
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 1rem; /* Adjust heading size for smaller screens */
+    }
 }
