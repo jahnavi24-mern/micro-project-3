@@ -7,11 +7,13 @@ const equal = document.querySelector(".equal");
 let curr = '';
 let result = '';
 
+// Function to display the expression and answer in the space
 const display = (value) => {
     input.value = value;
     input.scrollLeft = input.scrollWidth;
 };
 
+// Function to check if the value is operator
 const isOperator = (value) => {
     if (!value){
         return false;
@@ -19,6 +21,7 @@ const isOperator = (value) => {
     return '+-x/'.includes(value);
 };
 
+// Function to select a particular key
 const selectedClick = (value) => {
     console.log("You clicked", value);
 
@@ -45,6 +48,7 @@ const selectedClick = (value) => {
 
 };
 
+// Function to evaluate the expression
 const equalClick = () => {
     if (curr === '' || isOperator(curr.slice(-1))) return;
 
@@ -63,6 +67,7 @@ const equalClick = () => {
     }
 }
 
+// Function to backspace in the expression
 const deleteClick = () => {
     if (curr.length > 0) {
         // Remove the last character and any trailing spaces
@@ -75,6 +80,7 @@ const deleteClick = () => {
     }
 };
 
+// Function to reset the click
 const resetClick = () => {
     curr = '';
     result = '';
@@ -82,7 +88,7 @@ const resetClick = () => {
     display('');
 }
 
-
+// Event listeners for the respective keys
 select.forEach((key) => key.addEventListener("click", function(){
     const value = this.textContent;
     selectedClick(value);
